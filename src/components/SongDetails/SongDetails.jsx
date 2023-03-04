@@ -1,7 +1,15 @@
-
+import { useSongContext } from '@/context/SongContext'
 const SongDetails = () => {
+  const context = useSongContext()
+
   return (
-    <h1>El datalle de la cancion que seleccionaste</h1>
+    context.selectedSong.title
+      ? <div>
+        <h1>{context.selectedSong.title}</h1>
+        <h4>{context.selectedSong.artist}</h4>
+        <h6>{context.selectedSong.year}</h6>
+        </div>
+      : <h1>Selecciona una cancion</h1>
   )
 }
 
